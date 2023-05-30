@@ -9,3 +9,65 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Call {
+  id String @id @default(uuid())
+  description String
+  created_at DateTime @default(now())
+
+  technician Technician @relation(fields: [technician_id], references: [id])
+  technician_id String
+
+  @@map("calls")
+}
+
+model Condo {
+  id String @id @default(uuid())
+  name String @unique
+
+  administrator Administrator @relation(fields: [administrator_id], references: [id])
+  administrator_id String
+
+  employe Employee @relation(fields: [employe_id], references: [id])
+  employe_id String @unique
+
+  created_at DateTime @default(now())
+
+  @@map("condos")
+}
+
+model Administrator {
+  id String @id @default(uuid())
+  name String
+
+  condo Condo[]
+
+  created_at DateTime @default(now())
+
+  @@map("administrators")
+}
+
+
+model Employee {
+  id String @id @default(uuid())
+  name String
+
+  condo Condo?
+
+  created_at DateTime @default(now())
+
+
+  @@map("employees")
+}
+
+model Technician {
+  id String @id @default(uuid())
+  name String
+
+  created_at DateTime @default(now())
+
+  calls Call[]
+
+  @@map("technicians")
+}
+
