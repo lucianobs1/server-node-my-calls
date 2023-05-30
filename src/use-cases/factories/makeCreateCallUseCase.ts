@@ -1,5 +1,5 @@
 import { CallsRepository } from '../../repositories/prisma/CallsRepository';
-import { CreateCallUseCase } from '../createCall/createCallUseCase';
+import { CreateCallUseCase } from '../createCall/CreateCallUseCase';
 
 export function makeCreateCallUseCase() {
   const callsRepository = new CallsRepository();
