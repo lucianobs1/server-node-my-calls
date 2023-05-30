@@ -34,11 +34,23 @@ model Technician {
 }
 
 model Condo {
-  id   String @id @default(uuid())
-  name String @unique
-
+  id         String   @id @default(uuid())
+  name       String   @unique
   created_at DateTime @default(now())
-  Call       Call[]
+
+  administrator    Administrator? @relation(fields: [administrator_id], references: [id])
+  administrator_id String?
+
+  Call Call[]
 
   @@map("condos")
+}
+
+model Administrator {
+  id         String   @id @default(uuid())
+  name       String
+  created_at DateTime @default(now())
+  Condo      Condo[]
+
+  @@map("administrators")
 }
