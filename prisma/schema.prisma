@@ -14,12 +14,15 @@ model Call {
   id          String   @id @default(uuid())
   description String
   created_at  DateTime @default(now())
+  isOpen      Boolean  @default(true)
 
   technician    Technician? @relation(fields: [technician_id], references: [id])
   technician_id String?
 
   condo    Condo?  @relation(fields: [condo_id], references: [id])
   condo_id String?
+
+  information Information[]
 }
 
 model Technician {
@@ -53,4 +56,15 @@ model Administrator {
   Condo      Condo[]
 
   @@map("administrators")
+}
+
+model Information {
+  id          String   @id @default(uuid())
+  description String
+  created_at  DateTime @default(now())
+
+  Call   Call?   @relation(fields: [callId], references: [id])
+  callId String?
+
+  @@map("informations")
 }
