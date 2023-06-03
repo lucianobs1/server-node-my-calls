@@ -8,13 +8,23 @@ export class CallsRepository implements ICallsRepository {
       where: {
         id: call_id,
       },
+      include: {
+        technician: true,
+        condo: true,
+      },
     });
 
     return call;
   }
 
   async list(): Promise<Call[]> {
-    const calls = await prisma.call.findMany();
+    const calls = await prisma.call.findMany({
+      include: {
+        technician: true,
+        condo: true,
+      },
+    });
+
     return calls;
   }
 
