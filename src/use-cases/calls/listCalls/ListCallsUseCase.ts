@@ -1,4 +1,4 @@
-import { ICallsRepository } from '../../repositories/ICallsRepository';
+import { ICallsRepository } from '../../../repositories/ICallsRepository';
 
 export class ListCallUseCase {
   constructor(private callsRepository: ICallsRepository) {}

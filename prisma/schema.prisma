@@ -63,8 +63,8 @@ model Information {
   description String
   created_at  DateTime @default(now())
 
-  Call   Call?   @relation(fields: [callId], references: [id])
-  callId String?
+  Call    Call?   @relation(fields: [call_id], references: [id])
+  call_id String?
 
   @@map("informations")
 }
