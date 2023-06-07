@@ -9,5 +9,5 @@ export async function listClientsController(
 
   const clients = await listClientsUseCase.execute();
 
-  return reply.status(201).send(clients);
+  return reply.status(200).send(clients);
 }

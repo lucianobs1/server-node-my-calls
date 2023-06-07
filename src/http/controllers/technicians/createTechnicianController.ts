@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeTechnician } from '../../../use-cases/technicians/@factories/makeCreateTechnician';
+import { makeCreateTechnicianUseCase } from '../../../use-cases/technicians/@factories/makeCreateTechnicianUseCase';
 
 export async function createTechnicianController(
   request: FastifyRequest,
@@ -12,7 +12,7 @@ export async function createTechnicianController(
 
   const { name } = bodyTechniciansSchema.parse(request.body);
 
-  const createTechnicianUseCase = makeTechnician();
+  const createTechnicianUseCase = makeCreateTechnicianUseCase();
 
   const technician = await createTechnicianUseCase.execute({
     name,
