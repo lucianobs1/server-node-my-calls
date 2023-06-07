@@ -5,9 +5,9 @@ CREATE TABLE "Call" (
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "isOpen" BOOLEAN NOT NULL DEFAULT true,
     "technician_id" TEXT,
-    "condo_id" TEXT,
+    "client_id" TEXT,
     CONSTRAINT "Call_technician_id_fkey" FOREIGN KEY ("technician_id") REFERENCES "technicians" ("id") ON DELETE SET NULL ON UPDATE CASCADE,
-    CONSTRAINT "Call_condo_id_fkey" FOREIGN KEY ("condo_id") REFERENCES "condos" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+    CONSTRAINT "Call_client_id_fkey" FOREIGN KEY ("client_id") REFERENCES "clients" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -18,18 +18,11 @@ CREATE TABLE "technicians" (
 );
 
 -- CreateTable
-CREATE TABLE "condos" (
+CREATE TABLE "clients" (
     "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL,
-    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "administrator_id" TEXT,
-    CONSTRAINT "condos_administrator_id_fkey" FOREIGN KEY ("administrator_id") REFERENCES "administrators" ("id") ON DELETE SET NULL ON UPDATE CASCADE
-);
-
--- CreateTable
-CREATE TABLE "administrators" (
-    "id" TEXT NOT NULL PRIMARY KEY,
-    "name" TEXT NOT NULL,
+    "administrator_name" TEXT NOT NULL,
+    "condominium_name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
     "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -43,4 +36,4 @@ CREATE TABLE "informations" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "condos_name_key" ON "condos"("name");
+CREATE UNIQUE INDEX "clients_email_key" ON "clients"("email");

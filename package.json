@@ -10,16 +10,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.14.1",
+    "@prisma/client": "^4.15.0",
     "dotenv": "^16.0.3",
     "fastify": "^4.17.0",
+    "i": "^0.3.7",
+    "npm": "^9.6.7",
     "zod": "^3.21.4"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/node": "^20.2.5",
     "eslint": "^8.41.0",
-    "prisma": "^4.14.1",
+    "prisma": "^4.15.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   }
