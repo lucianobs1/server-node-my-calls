@@ -10,7 +10,7 @@ export class CallsRepository implements ICallsRepository {
       },
       include: {
         technician: true,
-        condo: true,
+        Client: true,
       },
     });
 
@@ -21,7 +21,7 @@ export class CallsRepository implements ICallsRepository {
     const calls = await prisma.call.findMany({
       include: {
         technician: true,
-        condo: true,
+        Client: true,
       },
     });
 

@@ -8,6 +8,9 @@ export class ClientsRepository implements IClientsRepository {
       where: {
         email,
       },
+      include: {
+        call: true,
+      },
     });
 
     return client;
