@@ -4,9 +4,9 @@ export class ListTechniciansUseCase {
   constructor(private techniciansRepository: ITechniciansRepository) {}
 
   async execute() {
-    const technician = await this.techniciansRepository.list();
+    const technicians = await this.techniciansRepository.list();
     return {
-      technician,
+      technicians,
     };
   }
 }
