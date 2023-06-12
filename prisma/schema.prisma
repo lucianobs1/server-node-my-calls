@@ -20,7 +20,7 @@ model Call {
   technician    Technician? @relation(fields: [technician_id], references: [id])
 
   client_id   String?
-  Client      Client?       @relation(fields: [client_id], references: [id])
+  client      Client?       @relation(fields: [client_id], references: [id])
   Information Information[]
 }
 
