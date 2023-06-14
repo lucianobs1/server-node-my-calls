@@ -19,9 +19,9 @@ model Call {
   technician_id String?
   technician    Technician? @relation(fields: [technician_id], references: [id])
 
-  client_id   String?
-  client      Client?       @relation(fields: [client_id], references: [id])
-  Information Information[]
+  client_id    String?
+  client       Client?       @relation(fields: [client_id], references: [id])
+  informations Information[]
 }
 
 model Technician {
@@ -42,7 +42,7 @@ model Client {
   email              String   @unique
   created_at         DateTime @default(now())
 
-  call Call[]
+  calls Call[]
 
   @@map("clients")
 }

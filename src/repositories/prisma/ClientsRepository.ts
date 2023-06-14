@@ -6,7 +6,7 @@ export class ClientsRepository implements IClientsRepository {
   async list(): Promise<Client[]> {
     const clients = await prisma.client.findMany({
       include: {
-        call: true,
+        calls: true,
       },
     });
 

@@ -6,9 +6,6 @@ export class InformationsRepository implements IInformationsRepository {
   async list(call_id: string): Promise<Information[]> {
     const informations = await prisma.information.findMany({
       where: { call_id },
-      include: {
-        Call: true,
-      },
     });
 
     return informations;

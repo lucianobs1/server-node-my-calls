@@ -11,6 +11,7 @@ export class CallsRepository implements ICallsRepository {
       include: {
         technician: true,
         client: true,
+        informations: true,
       },
     });
 
