@@ -4,9 +4,10 @@ import { prisma } from '../../lib/prisma';
 
 export class CallsRepository implements ICallsRepository {
   async show(call_id: string): Promise<Call> {
-    const call = await prisma.call.findUniqueOrThrow({
+    const call = await prisma.call.findFirstOrThrow({
       where: {
         id: call_id,
+        isOpen: true,
       },
       include: {
         technician: true,
@@ -20,6 +21,10 @@ export class CallsRepository implements ICallsRepository {
 
   async list(): Promise<Call[]> {
     const calls = await prisma.call.findMany({
+      where: {
+        isOpen: true,
+      },
+
       include: {
         technician: true,
         client: true,
