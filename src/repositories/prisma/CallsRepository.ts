@@ -3,7 +3,20 @@ import { ICallsRepository } from '../ICallsRepository';
 import { prisma } from '../../lib/prisma';
 
 export class CallsRepository implements ICallsRepository {
-  async show(call_id: string): Promise<Call> {
+  async update(call_id: string): Promise<Call> {
+    const call = await prisma.call.update({
+      where: {
+        id: call_id,
+      },
+      data: {
+        isOpen: false,
+      },
+    });
+
+    return call;
+  }
+
+  async findById(call_id: string): Promise<Call> {
     const call = await prisma.call.findFirstOrThrow({
       where: {
         id: call_id,

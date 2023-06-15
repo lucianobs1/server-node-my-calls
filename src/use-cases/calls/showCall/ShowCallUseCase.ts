@@ -7,7 +7,7 @@ interface IGetOneCallRequest {
 export class ShowCallUseCase {
   constructor(private callsRepository: ICallsRepository) {}
   async execute({ call_id }: IGetOneCallRequest) {
-    const call = await this.callsRepository.show(call_id);
+    const call = await this.callsRepository.findById(call_id);
 
     if (!call) {
       throw new Error('Call does not exists');
