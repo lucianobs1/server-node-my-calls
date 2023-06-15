@@ -3,6 +3,28 @@ import { ICallsRepository } from '../ICallsRepository';
 import { prisma } from '../../lib/prisma';
 
 export class CallsRepository implements ICallsRepository {
+  async findAllOpen(): Promise<number> {
+    const openCalls = await prisma.call.count({
+      where: { isOpen: true },
+    });
+
+    return openCalls;
+  }
+
+  async findAll(): Promise<number> {
+    const allCalls = await prisma.call.count();
+
+    return allCalls;
+  }
+
+  async findAllClosed(): Promise<number> {
+    const closedCalls = await prisma.call.count({
+      where: { isOpen: false },
+    });
+
+    return closedCalls;
+  }
+
   async update(call_id: string): Promise<Call> {
     const call = await prisma.call.update({
       where: {

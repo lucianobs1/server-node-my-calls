@@ -5,4 +5,7 @@ export interface ICallsRepository {
   list(): Promise<Call[]>;
   findById(call_id: string): Promise<Call | null>;
   update(call_id: string): Promise<Call>;
+  findAllOpen(): Promise<number>;
+  findAllClosed(): Promise<number>;
+  findAll(): Promise<number>;
 }
