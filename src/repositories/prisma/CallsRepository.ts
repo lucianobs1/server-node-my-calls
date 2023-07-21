@@ -1,9 +1,23 @@
 import { Call, Prisma } from '@prisma/client';
-import { ICallsRepository } from '../ICallsRepository';
+import { ICallsRepository, ISummaryCallPerMonth } from '../ICallsRepository';
 import { prisma } from '../../lib/prisma';
 
 export class CallsRepository implements ICallsRepository {
-  async findAllOpen(): Promise<number> {
+  async countAllPerMonth(): Promise<ISummaryCallPerMonth> {
+    const callsPerMonth = (await prisma.$queryRaw`
+      SELECT
+      -- STRFTIME("%m-%Y",DATETIME(created_at/1000.0, 'unixepoch', 'localtime')) as date,
+      cast(STRFTIME("%Y", created_at/1000.0, 'unixepoch') as float) as year,
+      cast(STRFTIME("%m-%Y", created_at/1000.0, 'unixepoch') as float) as month,
+        cast(COUNT(created_at) as float) as quantity
+      FROM CALL
+      GROUP BY STRFTIME("%m-%Y",DATETIME(created_at/1000.0, 'unixepoch', 'localtime'))
+    `) as ISummaryCallPerMonth;
+
+    return callsPerMonth;
+  }
+
+  async countAllOpen(): Promise<number> {
     const openCalls = await prisma.call.count({
       where: { isOpen: true },
     });
@@ -11,13 +25,13 @@ export class CallsRepository implements ICallsRepository {
     return openCalls;
   }
 
-  async findAll(): Promise<number> {
+  async countAll(): Promise<number> {
     const allCalls = await prisma.call.count();
 
     return allCalls;
   }
 
-  async findAllClosed(): Promise<number> {
+  async countAllClosed(): Promise<number> {
     const closedCalls = await prisma.call.count({
       where: { isOpen: false },
     });
