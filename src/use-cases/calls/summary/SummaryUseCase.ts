@@ -1,4 +1,5 @@
 import { ICallsRepository } from '../../../repositories/ICallsRepository';
+import { countCallsByMonth } from '../../../utils/countCallsByMonth';
 
 export class SummaryUseCase {
   constructor(private callsRepository: ICallsRepository) {}
@@ -8,6 +9,8 @@ export class SummaryUseCase {
     const numberOfClosedCalls = await this.callsRepository.countAllClosed();
     const numberOfAllCalls = await this.callsRepository.countAll();
     const numberOfCallsPerMonth = await this.callsRepository.countAllPerMonth();
+
+    countCallsByMonth(numberOfCallsPerMonth);
 
     return {
       numberOfOpenCalls,

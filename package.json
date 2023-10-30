@@ -23,7 +23,7 @@
     "@rocketseat/eslint-config": "^1.2.0",
     "@types/node": "^20.2.5",
     "eslint": "^8.41.0",
-    "prisma": "^4.15.0",
+    "prisma": "^5.2.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   }

@@ -4,6 +4,7 @@
     "prettier/prettier": ["error", { "semi": true }],
     "no-useless-constructor": "off",
     "camelcase": "off",
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    "array-callback-return": "off"
   }
 }

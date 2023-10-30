@@ -3,8 +3,11 @@ import { Call, Prisma } from '@prisma/client';
 export interface ISummaryCallPerMonth {
   year: number;
   month: number;
+  monthName: string;
   quantity: number;
 }
+
+type IListSummaryCallPerMonth = ISummaryCallPerMonth[];
 
 export interface ICallsRepository {
   create(data: Prisma.CallUncheckedCreateInput): Promise<Call>;
@@ -14,5 +17,5 @@ export interface ICallsRepository {
   countAllOpen(): Promise<number>;
   countAllClosed(): Promise<number>;
   countAll(): Promise<number>;
-  countAllPerMonth(): Promise<ISummaryCallPerMonth>;
+  countAllPerMonth(): Promise<IListSummaryCallPerMonth>;
 }
