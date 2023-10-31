@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeCreateCallUseCase } from '../../../use-cases/calls/@factories/makeCreateCallUseCase';
+import { makeCreateCallUseCase } from '@/use-cases/calls/@factories/makeCreateCallUseCase';
 
 export async function createCallController(
   request: FastifyRequest,

@@ -1,5 +1,5 @@
-import { ICallsRepository } from '../../../repositories/ICallsRepository';
-import { countCallsByMonth } from '../../../utils/countCallsByMonth';
+import { ICallsRepository } from '@/repositories/ICallsRepository';
+import { countCallsByMonth } from '@/utils/countCallsByMonth';
 
 export class SummaryUseCase {
   constructor(private callsRepository: ICallsRepository) {}

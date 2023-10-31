@@ -1,4 +1,4 @@
-import { ITechniciansRepository } from '../../../repositories/ITechniciansRepository';
+import { ITechniciansRepository } from '@/repositories/ITechniciansRepository';
 
 interface ICreateTechnicianRequest {
   name: string;

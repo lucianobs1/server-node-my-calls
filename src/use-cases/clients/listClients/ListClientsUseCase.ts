@@ -1,4 +1,4 @@
-import { IClientsRepository } from '../../../repositories/IClientsRepository';
+import { IClientsRepository } from '@/repositories/IClientsRepository';
 
 export class ListClientsUseCase {
   constructor(private clientsRepository: IClientsRepository) {}

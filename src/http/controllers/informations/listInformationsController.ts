@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeListInformationsUseCase } from '../../../use-cases/infos/factories/makeListInformationsUseCase';
+import { makeListInformationsUseCase } from '@/use-cases/infos/factories/makeListInformationsUseCase';
 
 export async function listInformationsController(
   request: FastifyRequest,

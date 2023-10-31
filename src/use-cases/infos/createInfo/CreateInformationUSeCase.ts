@@ -1,4 +1,4 @@
-import { IInformationsRepository } from '../../../repositories/IInformationsRepository';
+import { IInformationsRepository } from '@/repositories/IInformationsRepository';
 
 interface ICreateInformationRequest {
   description: string;

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeCloseCallUseCase } from '../../../use-cases/calls/@factories/makeCloseCallUseCase';
+import { makeCloseCallUseCase } from '@/use-cases/calls/@factories/makeCloseCallUseCase';
 
 export async function closeCallController(
   request: FastifyRequest,

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeCreateInformationUseCase } from '../../../use-cases/infos/factories/makeCreateInformationUseCase';
+import { makeCreateInformationUseCase } from '@/use-cases/infos/factories/makeCreateInformationUseCase';
 
 export async function createInformationController(
   request: FastifyRequest,

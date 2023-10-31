@@ -1,4 +1,4 @@
-import { CallsRepository } from '../../../repositories/prisma/CallsRepository';
+import { CallsRepository } from '@/repositories/prisma/CallsRepository';
 import { SummaryUseCase } from '../summary/SummaryUseCase';
 
 export function makeSummaryUseCase() {

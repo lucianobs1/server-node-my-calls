@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeListCallsUseCase } from '../../../use-cases/calls/@factories/makeListCallsUseCase';
+import { makeListCallsUseCase } from '@/use-cases/calls/@factories/makeListCallsUseCase';
 
 export async function listCallsController(
   request: FastifyRequest,

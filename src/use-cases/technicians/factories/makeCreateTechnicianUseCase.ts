@@ -1,4 +1,4 @@
-import { TechniciansRepository } from '../../../repositories/prisma/TechniciansRepository';
+import { TechniciansRepository } from '@/repositories/prisma/TechniciansRepository';
 import { CreateTechnicianUseCase } from '../createTechnician/CreateTechnicianUseCase';
 
 export function makeCreateTechnicianUseCase() {

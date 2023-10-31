@@ -1,4 +1,4 @@
-import { ICallsRepository } from '../../../repositories/ICallsRepository';
+import { ICallsRepository } from '@/repositories/ICallsRepository';
 
 interface ICloseCallRequest {
   id: string;

@@ -7,7 +7,7 @@ export interface ISummaryCallPerMonth {
   quantity: number;
 }
 
-type IListSummaryCallPerMonth = ISummaryCallPerMonth[];
+export type IListSummaryCallPerMonth = ISummaryCallPerMonth[];
 
 export interface ICallsRepository {
   create(data: Prisma.CallUncheckedCreateInput): Promise<Call>;

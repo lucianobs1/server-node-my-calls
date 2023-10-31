@@ -1,10 +1,10 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
 
-import { callsRoutes } from './http/controllers/calls/routes';
-import { informationsRoutes } from './http/controllers/informations/routes';
-import { techniciansRoutes } from './http/controllers/technicians/routes';
-import { clientsRoutes } from './http/controllers/clients/routes';
+import { callsRoutes } from '@/http/controllers/calls/routes';
+import { informationsRoutes } from '@/http/controllers/informations/routes';
+import { techniciansRoutes } from '@/http/controllers/technicians/routes';
+import { clientsRoutes } from '@/http/controllers/clients/routes';
 
 export const app = fastify();
 

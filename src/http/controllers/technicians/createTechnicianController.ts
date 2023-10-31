@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeCreateTechnicianUseCase } from '../../../use-cases/technicians/@factories/makeCreateTechnicianUseCase';
+import { makeCreateTechnicianUseCase } from '@/use-cases/technicians/factories/makeCreateTechnicianUseCase';
 
 export async function createTechnicianController(
   request: FastifyRequest,

@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeListTechniciansUseCase } from '../../../use-cases/technicians/@factories/makeListTechniciansUseCase';
+import { makeListTechniciansUseCase } from '../../../use-cases/technicians/factories/makeListTechniciansUseCase';
 
 export async function listTechniciansController(
   request: FastifyRequest,

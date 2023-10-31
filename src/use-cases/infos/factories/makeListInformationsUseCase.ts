@@ -1,4 +1,4 @@
-import { InformationsRepository } from '../../../repositories/prisma/InformationsRepository';
+import { InformationsRepository } from '@/repositories/prisma/InformationsRepository';
 import { ListInformationsUseCase } from '../listInfo/ListInformationsUseCase';
 
 export function makeListInformationsUseCase() {

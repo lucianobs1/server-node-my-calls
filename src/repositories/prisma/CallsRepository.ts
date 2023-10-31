@@ -1,18 +1,21 @@
+import { prisma } from '@/lib/prisma';
 import { Call, Prisma } from '@prisma/client';
-import { ICallsRepository, ISummaryCallPerMonth } from '../ICallsRepository';
-import { prisma } from '../../lib/prisma';
+import {
+  ICallsRepository,
+  IListSummaryCallPerMonth,
+} from '../ICallsRepository';
 
 export class CallsRepository implements ICallsRepository {
-  async countAllPerMonth(): Promise<ISummaryCallPerMonth> {
+  async countAllPerMonth(): Promise<IListSummaryCallPerMonth> {
     const callsPerMonth = (await prisma.$queryRaw`
-      SELECT
-      -- STRFTIME("%m-%Y",DATETIME(created_at/1000.0, 'unixepoch', 'localtime')) as date,
-      cast(STRFTIME("%Y", created_at/1000.0, 'unixepoch') as float) as year,
-      cast(STRFTIME("%m-%Y", created_at/1000.0, 'unixepoch') as float) as month,
-        cast(COUNT(created_at) as float) as quantity
-      FROM CALL
-      GROUP BY STRFTIME("%m-%Y",DATETIME(created_at/1000.0, 'unixepoch', 'localtime'))
-    `) as ISummaryCallPerMonth;
+    SELECT
+    -- STRFTIME("%m-%Y",DATETIME(created_at/1000.0, 'unixepoch', 'localtime')) as date,
+    cast(STRFTIME("%Y", created_at/1000.0, 'unixepoch') as float) as year,
+    cast(STRFTIME("%m-%Y", created_at/1000.0, 'unixepoch') as float) as month,
+      cast(COUNT(created_at) as float) as quantity
+    FROM CALL
+    GROUP BY STRFTIME("%m-%Y",DATETIME(created_at/1000.0, 'unixepoch', 'localtime'))
+  `) as IListSummaryCallPerMonth;
 
     return callsPerMonth;
   }

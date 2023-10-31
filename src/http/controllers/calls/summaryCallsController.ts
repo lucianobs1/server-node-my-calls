@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { makeSummaryUseCase } from '../../../use-cases/calls/@factories/makeSummaryUseCase';
+import { makeSummaryUseCase } from '@/use-cases/calls/@factories/makeSummaryUseCase';
 
 export async function summaryCallsController(
   request: FastifyRequest,

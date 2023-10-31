@@ -1,4 +1,4 @@
-import { CallsRepository } from '../../../repositories/prisma/CallsRepository';
+import { CallsRepository } from '@/repositories/prisma/CallsRepository';
 import { CloseCallUseCase } from '../closeCall/CloseCallUseCase';
 
 export function makeCloseCallUseCase() {

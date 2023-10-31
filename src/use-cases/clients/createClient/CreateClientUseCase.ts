@@ -1,4 +1,4 @@
-import { IClientsRepository } from '../../../repositories/IClientsRepository';
+import { IClientsRepository } from '@/repositories/IClientsRepository';
 
 interface IClientRequest {
   condominium_name: string;

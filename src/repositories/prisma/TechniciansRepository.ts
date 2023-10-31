@@ -1,6 +1,6 @@
+import { prisma } from '@/lib/prisma';
 import { Prisma, Technician } from '@prisma/client';
 import { ITechniciansRepository } from '../ITechniciansRepository';
-import { prisma } from '../../lib/prisma';
 
 export class TechniciansRepository implements ITechniciansRepository {
   async list(): Promise<Technician[]> {

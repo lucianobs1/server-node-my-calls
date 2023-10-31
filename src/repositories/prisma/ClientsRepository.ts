@@ -1,5 +1,5 @@
+import { prisma } from '@/lib/prisma';
 import { Client, Prisma } from '@prisma/client';
-import { prisma } from '../../lib/prisma';
 import { IClientsRepository } from '../IClientsRepository';
 
 export class ClientsRepository implements IClientsRepository {
