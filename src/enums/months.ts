@@ -14,3 +14,18 @@ export enum Months {
   NOVEMBER = 11,
   DECEMBER = 12,
 }
+
+export enum MonthsNames {
+  JANUARY = 'Janeiro',
+  FEBRUARY = 'Fevereiro',
+  MARCH = 'Março',
+  APRIL = 'Abril',
+  MAY = 'Maio',
+  JUNE = 'Junho',
+  JULY = 'Julho',
+  AUGUST = 'Agosto',
+  SEPTEMBER = 'Setembro',
+  OCTOBER = 'Outubro',
+  NOVEMBER = 'Novembro',
+  DECEMBER = 'Dezembro',
+}

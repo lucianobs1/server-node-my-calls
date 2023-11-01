@@ -10,13 +10,17 @@ export class SummaryUseCase {
     const numberOfAllCalls = await this.callsRepository.countAll();
     const numberOfCallsPerMonth = await this.callsRepository.countAllPerMonth();
 
-    countCallsByMonth(numberOfCallsPerMonth);
+    const summaryNumberOfCallsPerMonth = await countCallsByMonth(
+      numberOfCallsPerMonth
+    );
+
+    console.log(summaryNumberOfCallsPerMonth);
 
     return {
       numberOfOpenCalls,
       numberOfClosedCalls,
       numberOfAllCalls,
-      numberOfCallsPerMonth,
+      summaryNumberOfCallsPerMonth,
     };
   }
 }
