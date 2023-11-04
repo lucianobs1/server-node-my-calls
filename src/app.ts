@@ -5,6 +5,7 @@ import { callsRoutes } from '@/http/controllers/calls/routes';
 import { informationsRoutes } from '@/http/controllers/informations/routes';
 import { techniciansRoutes } from '@/http/controllers/technicians/routes';
 import { clientsRoutes } from '@/http/controllers/clients/routes';
+import { usersRoutes } from './http/controllers/users/routes';
 
 export const app = fastify();
 
@@ -16,3 +17,4 @@ app.register(callsRoutes);
 app.register(informationsRoutes);
 app.register(techniciansRoutes);
 app.register(clientsRoutes);
+app.register(usersRoutes);
